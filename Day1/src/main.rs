@@ -8,14 +8,14 @@ fn part1(left_column:& Vec<i32>, right_column:& Vec<i32>) {
 }
 
 fn part2(left_column:& Vec<i32>, right_column:& Vec<i32>) {
-    let new_left_column: i32 = left_column.iter()
+    let left_accum: i32 = left_column.iter()
         .map(|left_value| {
             let nb_occurences = right_column.iter().filter(|&right| *right == *left_value).count() as i32;
             return left_value * nb_occurences;
         })
         .sum();
 
-    println!("Part 2: {}", new_left_column);
+    println!("Part 2: {}", left_accum);
 }
 
 fn main() {
