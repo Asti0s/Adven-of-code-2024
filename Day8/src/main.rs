@@ -127,9 +127,5 @@ fn main() {
         acc + line.chars().filter(|c| *c == '#').count()
     });
 
-    for line in antinode_map.iter() {
-        println!("{}", line);
-    }
-
     println!("Part 2: {}", antinode_count);
 }
