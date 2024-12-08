@@ -16,7 +16,10 @@ fn main() {
                 .split_whitespace()
                 .map(|s| s.parse().unwrap())
                 .collect();
-            return Equation { number, test_values };
+            return Equation {
+                number,
+                test_values,
+            };
         })
         .collect::<Vec<Equation>>();
 
@@ -28,12 +31,17 @@ fn main() {
             for j in 1..equation.test_values.len() {
                 let rand = rand::random::<u8>() % 3;
 
-                if rand == 0 {          // Addition
+                if rand == 0 {
+                    // Addition
                     local_accum += equation.test_values[j];
-                } else if rand == 1 {   // Multiplication
+                } else if rand == 1 {
+                    // Multiplication
                     local_accum *= equation.test_values[j];
-                } else {                // Concatenation
-                    local_accum = format!("{}{}", local_accum, equation.test_values[j]).parse().unwrap();
+                } else {
+                    // Concatenation
+                    local_accum = format!("{}{}", local_accum, equation.test_values[j])
+                        .parse()
+                        .unwrap();
                 }
             }
 
